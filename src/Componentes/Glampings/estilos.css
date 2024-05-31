@@ -1,0 +1,208 @@
+.contenedorPrincipalImagenes{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 9.5rem;
+}
+
+.contenedorImagenesDetalle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.tarjeta-glamping {
+    position: relative;
+    width: 300px;
+    margin: 10px 10px 20px 10px;
+    align-items: center;
+}
+
+.glamping-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.glamping-imagen-foto{
+    width: 300px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.flecha-izquierda-foto{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    top: 50% - 10px;
+    left: 10px;
+    z-index: 0;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.flecha-derecha-foto {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    top: 50% - 10px;
+    right: 10px;
+    z-index: 0;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.flecha-izquierda-foto:hover,
+.flecha-derecha-foto:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
+}
+
+.icono-corazon {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    top: 15px;
+    right: 15px;
+    z-index: 0;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.icono-corazon.rojo {
+    color: red;
+}
+
+.icono-corazon:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
+}   
+
+.puntos-navegacion{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 85%;
+    right: 40%;
+    font-size: 17px;
+    
+}
+
+.puntos-navegacion > *{
+    margin:2px;
+    padding: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    color: white;
+    border: solid 0.5px black;
+}
+
+
+.glamping-info {
+    text-align: left;
+    font-family: 'Arial';
+    font-size: 13px;
+    min-width: 100%;
+}
+
+.glamping-info h3 {
+    color:black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.glamping-info-superior{
+display: flex;
+width: 100%;
+justify-content:space-between;
+align-items: center;
+}
+
+.glamping-info-superior > :nth-child(2){
+    margin: 0 0 0 10px;
+    }
+
+.glamping-info-calificacion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 10px;
+}
+
+.glamping-info-calificacion > :nth-child(2){
+    margin: 0 0 0 5px;
+    color:black;
+    font-size: 14px;
+}
+
+.glamping-info p {
+    padding: 4px 0 0 0;
+    color:gray
+}
+
+.glamping-info h4 {
+    padding-top: 4px;
+    color:rgb(84, 84, 84)
+}
+
+.precio{
+    display: flex;
+}
+
+.precio p{
+    margin-left: 5px;
+}
+
+@media (max-width: 744px) {
+
+    .tarjeta-glamping {
+        display: flex;
+        flex-direction: column;
+        width: 350px;    
+    }
+
+
+    .glamping-imagen-foto{
+        min-width: 350px;
+        height: 350px;
+    }
+
+    .flecha-izquierda-foto{
+        display: none;
+    }
+    
+    .flecha-derecha-foto {
+        display: none;
+    }
+    
+    .icono-corazon {
+        top: 15px;
+        right: 15px;
+        width: 32px;
+        height:32px;
+        font-size: 20px;
+    }
+
+    .glamping-info {
+        min-width: 350px;
+        max-width: 350px;
+    }
+
+}

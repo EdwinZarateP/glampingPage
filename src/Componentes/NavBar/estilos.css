@@ -1,0 +1,260 @@
+.barNav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: none;
+    border-bottom: 0.5px solid #cccccc;
+    justify-content: space-between;
+    height: 5rem;
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;  
+}
+
+
+.contenedorizquierdo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    max-width:300px;
+    min-width: 160px;
+    margin-left: 70px;
+}
+
+.pagopasarela{
+    background-color: #ed393f;
+    width: 90%;
+}
+
+.logoPrincipal{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.logoPrincipal img {
+    width: 100%; 
+    height: 100%;
+}
+
+.logoTienda{
+    display: none;
+}
+
+.contenedorMedio{
+    display: flex;
+    border-width: 0.5px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color:   #cccccc;
+    height: 3.5rem;
+    width: 42rem;
+    min-width: 18rem;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05); 
+    justify-content: space-between;  
+}
+
+.inputmedio{
+    border-radius: 25px;
+    outline: none;
+    border:none;
+    padding: 25px;
+    height: 3.5rem;
+    font-weight: bold;
+    color: #000000;  
+    width: 34rem;
+    min-width:4rem;
+    
+    
+}
+
+.inputmedio:hover {
+    background-color: #efefef; 
+}
+
+.contenedorMedioBotones{
+    display: flex;
+    justify-content: space-evenly;
+    width: 28rem;  
+    min-width: 8rem;
+    height: 3.5rem;  
+}
+
+.contenedorMedioBotones button{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%; 
+    padding: 5px;
+    margin-right: 10px; 
+    position: relative; 
+    padding-left: 10px;
+    border-radius: 35px;
+    margin: 0;
+    flex: 1;
+    border:none;
+    background-color: white;
+    font-weight: bold;
+    color:gray;
+    transition: background-color 0.2s;
+    max-width: 24rem; 
+}
+
+.contenedorMedioBotones button:before {
+    content: ''; /* contenido vacío para la línea */
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    left: 0;
+    width: 0.3px; 
+    background-color: gray; 
+  }
+
+.contenedorMedioBotones button:hover {
+    background-color: #efefef; 
+}
+
+
+.lupaBusqueda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    margin: 7px;
+    background-color: #FF5A5F;
+    color: white;
+    max-width: 40px;
+    min-width: 40px;
+    max-height: 2.5rem;
+    min-height: 2.5rem;
+    
+}
+
+.lupaBusqueda:hover {
+    background-color: #ed393f;
+    cursor: pointer;
+}
+
+.contenedorderecho{
+    margin-right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+}
+
+.contenedorderecho p{
+    font-size: 13.33px;
+    font-weight: bold;
+    font-family:Arial;
+    padding-left: 15px;
+}
+
+
+.contenedorderecho > :nth-child(2)  { /*con esto > * se seleccionan los hijos del elemento*/
+    padding: 10px; 
+}
+
+.contenedorMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    border-radius: 30px;
+    border-color:   #cccccc;
+    border-width: 0.5px;
+    height:100%;
+    background-color: white;
+}  
+
+.contenedorMenu > :nth-child(1)  {
+    padding-left:20px;
+}
+
+.contenedorMenu > :nth-child(2)  {
+    padding-right:20px;
+    padding-left:10px;
+}
+
+.contenedorMenu:hover {
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.multifiltroNav {
+    display: none;
+  }
+
+
+  /* --------------------------------------------------- */
+/* -------------para dispositivos moviles ---------------*/
+
+@media (max-width: 744px) {
+    .barNav {
+        height: 5rem; 
+        border: none;
+        margin: 0 10px 0 10px;
+    }
+
+    .contenedorizquierdo{
+        min-width: 40px;
+        margin-left: 0;
+    }
+
+    /*Desaparecemos el logo original y dejamos el logo basico*/
+    .logoPrincipal{
+        display: none;
+    }
+
+    .logoTienda{
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        min-width: 50px;
+        padding: 0 10px 0 10px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .contenedorMedio {
+        margin-left: 10px;
+        min-width:12rem;
+        width:100%;
+        justify-content: space-between;
+    }
+
+    .inputmedio{ 
+        min-width:8rem;
+    }
+
+    .contenedorMedioBotones{
+        display: none;
+    }
+
+    .contenedorderecho{
+        display: none;
+    }
+
+    .multifiltroNav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        border: solid;
+        border-radius: 30px;
+        border-color: #cccccc;
+        border-width: 0.5px;
+        height: 3.5rem;
+        font-size: 25px;
+        margin: 0 20px 0 10px;
+    }
+
+    
+}

@@ -1,0 +1,74 @@
+/* Footers.css */
+.contenedor-Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    margin: 0;
+    padding: 5px 0 10px 0;
+    border-top: solid 0.5px rgb(207, 207, 207);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+  }
+  
+  .contenedor-iconoFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    padding: 10px 20px 0 20px;
+
+  }
+  
+  .iconos-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column-reverse;
+    color: gray;
+    font-size: 20px;
+  }
+  
+  .iconos-footer span {
+    white-space: nowrap;
+    color: gray;
+    font-size: 14px;
+    font-family: Arial;
+    cursor: pointer;
+    padding-bottom: 10px;
+  }
+  
+  .iconos-footer:hover span {
+    color: black;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+  }
+  
+  .iconos-footer:hover .iconoFooter {
+    color: black;
+  }
+  
+  .iconoFooter:hover {
+    color: black;
+  }
+  
+  .visible {
+    transform: translateY(0);
+  }
+  
+  .oculto {
+    transform: translateY(100%);
+  }
+  
+
+  /* @media (max-width: 744px) {
+
+    .iconos-footer span{
+        display: none;
+    }
+  } */

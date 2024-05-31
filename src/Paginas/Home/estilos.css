@@ -1,0 +1,15 @@
+.contenedorHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.contenedorTarjetas{
+    display: flex;
+    Justify-content: center;
+    align-items: left;
+    margin-top: 9.5rem;
+    margin-left: 50px;
+    margin-right: 50px;
+    flex-wrap: wrap;
+}
