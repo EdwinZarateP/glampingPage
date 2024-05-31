@@ -9,7 +9,7 @@ function Registro() {
                 <GoogleLogin
                     onSuccess={(credentialResponse: CredentialResponse | undefined) => {
                         if (credentialResponse?.credential) {
-                            const decoded = jwtDecode(credentialResponse.credential);
+                            const decoded = jwtDecode(credentialResponse.credential)
                             console.log(decoded);
                         } else {
                             console.log('No se recibió el credencial');
