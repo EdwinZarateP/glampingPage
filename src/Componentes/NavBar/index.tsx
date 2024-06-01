@@ -1,8 +1,8 @@
 import logo from '../../Imagenes/logoColor.png';
 import './estilos.css';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link desde React Router
 import { ContextoGlamping } from '../../Contexto/index';
+import { Link } from 'react-router-dom'; // Importa Link desde React Router
 import { BiWorld } from "react-icons/bi";
 import { FiMenu, FiSearch } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
