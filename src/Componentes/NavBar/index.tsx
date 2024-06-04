@@ -3,11 +3,12 @@ import './estilos.css';
 import { useContext } from 'react';
 import { ContextoGlamping } from '../../Contexto/index';
 import { Link } from 'react-router-dom'; // Importa Link desde React Router
-import { BiWorld } from "react-icons/bi";
+// import { BiWorld } from "react-icons/bi";
 import { FiMenu, FiSearch } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { GiCampingTent } from "react-icons/gi";
 import { TbFilterSearch } from "react-icons/tb";
+import Boton from "../Botones/boton"
 
 const NavBar = () => {
   const almacenVar = useContext(ContextoGlamping);
@@ -42,13 +43,18 @@ const NavBar = () => {
 
       {/* Parte derecha */}
       <div className='contenedorderecho'>
-        <p>Ofrece tu Glamping</p>
-        <BiWorld />
+
+        <Link to="/registro">
+          <Boton descripcion="Ofrece tu Glamping" />
+          {/* <BiWorld />  */}
+        </Link>
+
+
         {/* Utiliza Link para envolver contenedorMenu */}
-        <Link to="/registro" className='contenedorMenu'>
+        <div className='contenedorMenu'>
           <FiMenu />
           <AiOutlineUser />
-        </Link>
+        </div>
       </div>
 
       {/* Parte derecha multifiltro */}

@@ -1,3 +1,4 @@
+/* Estilos generales para NavBar */
 .barNav {
     display: flex;
     flex-wrap: nowrap;
@@ -11,97 +12,91 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;  
+    z-index: 1;
 }
 
-
-.contenedorizquierdo{
+/* Parte Izquierda */
+.contenedorizquierdo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 5rem;
-    max-width:300px;
+    max-width: 300px;
     min-width: 160px;
     margin-left: 70px;
 }
 
-.pagopasarela{
-    background-color: #ed393f;
-    width: 90%;
-}
-
-.logoPrincipal{
+.logoPrincipal {
     display: flex;
     height: 100%;
     width: 100%;
 }
 
 .logoPrincipal img {
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
 
-.logoTienda{
+.logoTienda {
     display: none;
 }
 
-.contenedorMedio{
+/* Parte media */
+.contenedorMedio {
     display: flex;
     border-width: 0.5px;
     border-style: solid;
     border-radius: 25px;
-    border-color:   #cccccc;
+    border-color: #cccccc;
     height: 3.5rem;
     width: 42rem;
     min-width: 18rem;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05); 
-    justify-content: space-between;  
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
 }
 
-.inputmedio{
+.inputmedio {
     border-radius: 25px;
     outline: none;
-    border:none;
+    border: none;
     padding: 25px;
     height: 3.5rem;
     font-weight: bold;
-    color: #000000;  
+    color: #000000;
     width: 34rem;
-    min-width:4rem;
-    
-    
+    min-width: 4rem;
 }
 
 .inputmedio:hover {
-    background-color: #efefef; 
+    background-color: #efefef;
 }
 
-.contenedorMedioBotones{
+.contenedorMedioBotones {
     display: flex;
     justify-content: space-evenly;
-    width: 28rem;  
+    width: 28rem;
     min-width: 8rem;
-    height: 3.5rem;  
+    height: 3.5rem;
 }
 
-.contenedorMedioBotones button{
+.contenedorMedioBotones button {
     display: flex;
     align-items: center;
     cursor: pointer;
-    height: 100%; 
+    height: 100%;
     padding: 5px;
-    margin-right: 10px; 
-    position: relative; 
+    margin-right: 10px;
+    position: relative;
     padding-left: 10px;
     border-radius: 35px;
     margin: 0;
     flex: 1;
-    border:none;
+    border: none;
     background-color: white;
     font-weight: bold;
-    color:gray;
+    color: gray;
     transition: background-color 0.2s;
-    max-width: 24rem; 
+    max-width: 24rem;
 }
 
 .contenedorMedioBotones button:before {
@@ -110,29 +105,27 @@
     top: 25%;
     bottom: 25%;
     left: 0;
-    width: 0.3px; 
-    background-color: gray; 
-  }
-
-.contenedorMedioBotones button:hover {
-    background-color: #efefef; 
+    width: 0.3px;
+    background-color: gray;
 }
 
+.contenedorMedioBotones button:hover {
+    background-color: #efefef;
+}
 
-.lupaBusqueda{
+.lupaBusqueda {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-radius:50%;
+    border-radius: 50%;
     margin: 7px;
-    background-color: #FF5A5F;
+    background-color: #ff5a5f;
     color: white;
     max-width: 40px;
     min-width: 40px;
     max-height: 2.5rem;
     min-height: 2.5rem;
-    
 }
 
 .lupaBusqueda:hover {
@@ -140,25 +133,23 @@
     cursor: pointer;
 }
 
-.contenedorderecho{
+/* Parte derecha */
+.contenedorderecho {
+    /* background-color:pink; */
     margin-right: 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 3.5rem;
+    margin-left:10px ;
 }
 
-.contenedorderecho p{
-    font-size: 13.33px;
+/* .contenedorderecho p {
+    font-size: 15px;
     font-weight: bold;
-    font-family:Arial;
+    font-family: Arial;
     padding-left: 15px;
-}
-
-
-.contenedorderecho > :nth-child(2)  { /*con esto > * se seleccionan los hijos del elemento*/
-    padding: 10px; 
-}
+} */
 
 .contenedorMenu {
     display: flex;
@@ -166,19 +157,19 @@
     justify-content: center;
     border: solid;
     border-radius: 30px;
-    border-color:   #cccccc;
+    border-color: #cccccc;
     border-width: 0.5px;
-    height:100%;
-    background-color: white;
-}  
-
-.contenedorMenu > :nth-child(1)  {
-    padding-left:20px;
+    height: 95%;
+    margin-left: 10px;
 }
 
-.contenedorMenu > :nth-child(2)  {
-    padding-right:20px;
-    padding-left:10px;
+.contenedorMenu > :nth-child(1) {
+    padding-left: 20px;
+}
+
+.contenedorMenu > :nth-child(2) {
+    padding-right: 20px;
+    padding-left: 10px;
 }
 
 .contenedorMenu:hover {
@@ -186,32 +177,29 @@
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Parte derecha multifiltro */
 .multifiltroNav {
     display: none;
-  }
+}
 
-
-  /* --------------------------------------------------- */
-/* -------------para dispositivos moviles ---------------*/
-
+/* Estilos para dispositivos móviles */
 @media (max-width: 744px) {
     .barNav {
-        height: 5rem; 
+        height: 5rem;
         border: none;
         margin: 0 10px 0 10px;
     }
 
-    .contenedorizquierdo{
+    .contenedorizquierdo {
         min-width: 40px;
         margin-left: 0;
     }
 
-    /*Desaparecemos el logo original y dejamos el logo basico*/
-    .logoPrincipal{
+    .logoPrincipal {
         display: none;
     }
 
-    .logoTienda{
+    .logoTienda {
         display: flex;
         height: 100%;
         align-items: center;
@@ -225,20 +213,20 @@
 
     .contenedorMedio {
         margin-left: 10px;
-        min-width:12rem;
-        width:100%;
+        min-width: 12rem;
+        width: 100%;
         justify-content: space-between;
     }
 
-    .inputmedio{ 
-        min-width:8rem;
+    .inputmedio {
+        min-width: 8rem;
     }
 
-    .contenedorMedioBotones{
+    .contenedorMedioBotones {
         display: none;
     }
 
-    .contenedorderecho{
+    .contenedorderecho {
         display: none;
     }
 
@@ -255,6 +243,4 @@
         font-size: 25px;
         margin: 0 20px 0 10px;
     }
-
-    
 }
