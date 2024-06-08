@@ -1,14 +1,17 @@
 .contenedorTarjeta{
     display: flex;
+    flex: 1 0 15%;
     flex-direction: column;
     Justify-content: center;
     align-items: left;
     background-color: white;
     cursor: pointer;
-    width: 300px;
-    height: 360px;
-    margin: 20px;     
+    min-width: 220px;
+    /* max-width: 280px; */
+    height: 320px;
+    margin-top: 10px;
 }
+
 
 .contenedorImagen{
     position: relative;
@@ -123,7 +126,7 @@
     font-weight: 600;
 }
 
-@media (max-width: 744px) {
+@media (max-width: 550px) {
 
     .contenedorTarjeta {
         display: flex;

@@ -1,0 +1,45 @@
+.contenedorIngresoRegistro {
+    position: fixed;
+    top:calc(5rem + 0.5px);
+    right: 70px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 100%;
+    z-index: 2;
+    background-color: white;
+  }
+
+
+.contenedorIngresoRegistro.cerrado {
+  display: none;
+}
+
+.contenedorIngresoRegistro.abierto {
+  display: block;
+  /* Otros estilos necesarios para cuando está abierto */
+}
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .list-item {
+    margin-bottom: 20px;
+  }
+  

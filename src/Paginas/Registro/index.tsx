@@ -2,6 +2,7 @@ import { GoogleLogin, CredentialResponse } from '@react-oauth/google'
 import { jwtDecode } from "jwt-decode"
 import { useState, useEffect  } from 'react'
 import Confetti from 'react-confetti'
+import GridContainer from '../../Componentes/prueba'
 
 
 function Registro() {
@@ -46,6 +47,8 @@ function Registro() {
                     {mostrarConfeti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
                 </div>
             )}
+
+            <GridContainer/>
         </div>
     )
 }

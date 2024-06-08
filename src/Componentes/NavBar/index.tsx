@@ -9,6 +9,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { GiCampingTent } from "react-icons/gi";
 import { TbFilterSearch } from "react-icons/tb";
 import Boton from "../Botones/boton"
+// import RegistroIngreso from "../Registro_ingreso/index"
 
 const NavBar = () => {
   const almacenVar = useContext(ContextoGlamping);
@@ -49,9 +50,10 @@ const NavBar = () => {
           {/* <BiWorld />  */}
         </Link>
 
+        
 
         {/* Utiliza Link para envolver contenedorMenu */}
-        <div className='contenedorMenu'>
+        <div className='contenedorMenu'onClick={almacenVar?.abrirAlgo}>
           <FiMenu />
           <AiOutlineUser />
         </div>

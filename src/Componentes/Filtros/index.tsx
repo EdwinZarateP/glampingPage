@@ -10,7 +10,7 @@ import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-i
 import { useRef } from 'react';
 import { useContext } from 'react';
 import { ContextoGlamping } from '../../Contexto/index'
-
+import RegistroIngreso from "../Registro_ingreso/index"
 
 const Filtros = () => {
     const iconos = [
@@ -84,6 +84,7 @@ const Filtros = () => {
             <div className='multifiltro' onClick={()=>almacenVar?.abrirFiltroAvanzado()}>
                 <TbFilterSearch />       
             </div>
+            <RegistroIngreso/>
         </div>
     );
 };
