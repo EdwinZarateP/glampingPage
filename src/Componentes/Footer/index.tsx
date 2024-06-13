@@ -1,11 +1,10 @@
-// Footers.tsx
 import { useState, useEffect } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
-import { FaRegMessage } from "react-icons/fa6";
+// import { FaRegMessage } from "react-icons/fa6";
 import { AiOutlineUser } from "react-icons/ai";
-import { Link } from 'react-router-dom'
-import './estilos.css'
+import { Link } from 'react-router-dom';
+import './estilos.css';
 
 // Declaración de la propiedad 'data' en el objeto 'Window'
 declare global {
@@ -17,10 +16,10 @@ declare global {
 }
 
 const iconosfooter = [
-  { titulo: "Explorar", redirigir:'', icono: <FiSearch /> },
+  { titulo: "Explora", redirigir:'', icono: <FiSearch /> },
   { titulo: "Favoritos", redirigir:'Favoritos', icono: <IoIosHeartEmpty /> },
-  { titulo: "Mensajes", redirigir:'Mensajes', icono: <FaRegMessage /> },
-  { titulo: "Perfil", redirigir:'Usuarios', icono: <AiOutlineUser /> },
+  // { titulo: "Mensajes", redirigir:'Mensajes', icono: <FaRegMessage /> },
+  { titulo: "Iniciar sesión", redirigir:'Registro', icono: <AiOutlineUser /> },
 ];
 
 const Footers = () => {
@@ -28,7 +27,7 @@ const Footers = () => {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-  
+    
     // Check if scrolling up or down
     setIsScrollingUp(
       currentScrollY <
@@ -36,20 +35,30 @@ const Footers = () => {
           ? window.data.scrollY
           : currentScrollY) || currentScrollY === 0
     );
-  
+
     // Save the current scroll position for the next check
     window.data = {
       scrollY: currentScrollY,
     };
   };
-  
 
   useEffect(() => {
-    // Event listener for scroll
-    window.addEventListener("scroll", handleScroll);
+    // Check window size and add scroll event listener if not on mobile
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        window.addEventListener("scroll", handleScroll);
+      } else {
+        setIsScrollingUp(true); // Always visible on mobile
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize); // Resize check
 
     // Cleanup on component unmount
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -60,15 +69,14 @@ const Footers = () => {
     >
       <div className="contenedor-iconoFooter">
         {iconosfooter.map((elemento, index) => (
-          <Link to={`/${elemento.redirigir}`}>
-            <div key={index} className="iconos-footer">
+          <Link key={index} to={`/${elemento.redirigir}`}>
+            <div className="iconos-footer">
               <span>{elemento.titulo}</span>
               <div className="iconoFooter">{elemento.icono}</div>
             </div>
           </Link>
         ))}
       </div>
-
     </div>
   );
 };

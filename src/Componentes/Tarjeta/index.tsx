@@ -1,6 +1,7 @@
 import './estilos.css'
 import { Link } from 'react-router-dom';
-import { FaHeart, FaStar } from "react-icons/fa";
+import { AiTwotoneHeart } from "react-icons/ai";
+import { FaStar } from "react-icons/fa";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useContext } from 'react';
 import { ContextoGlamping } from '../../Contexto/index'
@@ -33,7 +34,7 @@ const Tarjeta = (data: any) => {
         </Link>
 
         <div className='favorito'>
-          <FaHeart />
+          <AiTwotoneHeart/>
         </div>
 
         {/* Flecha para desplazar a izquierda iconos */}
