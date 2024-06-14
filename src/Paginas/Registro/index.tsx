@@ -50,7 +50,7 @@ const Registro: React.FC = () => {
     }, [mostrarConfeti]);
 
     return (
-        <div>
+        <div className='contenedor_registro'>
             <div>
                 <h3>Regístrate con tu cuenta de Google</h3>
                 <span>
@@ -62,7 +62,7 @@ const Registro: React.FC = () => {
                     />
                 </span>
             </div>
-            <div>
+            <div className='formulario'>
                 <h3>o registrate aquí</h3>
                 <form onSubmit={handleFormSubmit}>
                     <div>
