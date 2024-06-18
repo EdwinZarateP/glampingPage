@@ -1,5 +1,6 @@
 import { createContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 
+
 // Si quiere usar una variable de aquí en alguna parte de la App, siga estos pasos:
 // 1. En el componente elegido, import { useContext } from 'react';
 // 2. En el componente elegido, traiga el proveedor así: import { ContextoGlamping } from '../../Contexto/index'
@@ -35,6 +36,29 @@ interface ContextProps {
   setEstaAbiertoAlgo2: Dispatch<SetStateAction<boolean>>;
   abrirAlgo2: () => void; 
   cerrarAlgo2: () => void; 
+
+  //Informacion que da el login de google
+  usuario: {
+    nombre: string;
+    email: string;
+    userId: string;
+  } | null;
+  setUsuario: Dispatch<SetStateAction<{
+      nombre: string;
+      email: string;
+      userId: string;
+  } | null>>;
+
+  formData: {
+    nombre: string;
+    email: string;
+    password: string;
+  };
+  setFormData: Dispatch<SetStateAction<{
+    nombre: string;
+    email: string;
+    password: string;
+  }>>;
 
 }
 
@@ -72,6 +96,14 @@ export const ProveedorVariables: React.FC<ProveedorVariablesProps> = ({ hijo }) 
    const abrirAlgo2 = () => setEstaAbiertoAlgo2(true);
    const cerrarAlgo2= () => setEstaAbiertoAlgo2(false);
 
+   // Estado para obtener la informacion del login
+   const [usuario, setUsuario] = useState<{ nombre: string, email: string, userId: string } | null>(null);
+   const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    password: ''
+   });
+
   //-------------------------------------------------------------------------------------
   // 3. Crea el objeto de contexto con los valores y funciones necesarios que quieres proveer
   //-------------------------------------------------------------------------------------
@@ -92,7 +124,11 @@ export const ProveedorVariables: React.FC<ProveedorVariablesProps> = ({ hijo }) 
     estaAbiertoAlgo2,
     setEstaAbiertoAlgo2,
     abrirAlgo2,
-    cerrarAlgo2 
+    cerrarAlgo2,
+    usuario,
+    setUsuario,
+    formData,
+    setFormData,
   };
 
   // Renderiza el proveedor de contexto con el valor proporcionado

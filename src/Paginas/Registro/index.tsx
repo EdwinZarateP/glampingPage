@@ -1,114 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
-import Confetti from 'react-confetti';
-import './estilos.css'; // Importa el archivo CSS
+
+import React, { useContext } from 'react';
+import GoogleRegistro from '../../Componentes/loginGoogle';
+import FormularioRegistro from '../../Componentes/FormularioRegistro';
+import Footer from '../../Componentes/Footer/index';
+import { ContextoGlamping } from '../../Contexto';
+// import { GuardarUsuario } from './funcionGuardarUsuario';
+import './estilos.css';
 
 const Registro: React.FC = () => {
-    const [usuario, setUsuario] = useState<string | null>(null);
-    const [mostrarConfeti, setMostrarConfeti] = useState(false);
-    const [formData, setFormData] = useState({
-        nombre: '',
-        email: '',
-        password: ''
-    });
+    const almacenVar = useContext(ContextoGlamping);
 
-    const handleSuccess = (credentialResponse: CredentialResponse | undefined) => {
-        if (credentialResponse?.credential) {
-            const decoded: any = jwtDecode(credentialResponse.credential);
-            const nombreUsuario: string = decoded.name;
-            setUsuario(nombreUsuario);
-            setMostrarConfeti(true);
-        } else {
-            console.log('No se recibió el credencial');
-        }
+    const handleLoginSuccess = (usuario: { nombre: string, email: string, userId: string }) => {
+        almacenVar?.setUsuario(usuario);
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
+        almacenVar?.setFormData(prevFormData => ({
+            ...prevFormData,
             [name]: value
-        });
+        }));
     };
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('Formulario enviado:', formData);
-        setUsuario(formData.nombre);
-        setMostrarConfeti(true);
-    };
-
-    useEffect(() => {
-        if (mostrarConfeti) {
-            const timeout = setTimeout(() => {
-                setMostrarConfeti(false);
-            }, 3000);
-
-            return () => clearTimeout(timeout);
+        if (almacenVar) {
+            console.log('Formulario enviado:', almacenVar.formData);
+            almacenVar.setUsuario({
+                nombre: almacenVar.formData.nombre,
+                email: almacenVar.formData.email,
+                userId: '' 
+            });
         }
-    }, [mostrarConfeti]);
+    };
 
     return (
         <div className='contenedor_registro'>
-            <div>
-                <h3>Regístrate con tu cuenta de Google</h3>
-                <span>
-                    <GoogleLogin
-                        onSuccess={handleSuccess}
-                        onError={() => {
-                            console.log('Login Failed')
-                        }}
-                    />
-                </span>
-            </div>
-            <div className='formulario'>
-                <h3>o registrate aquí</h3>
-                <form onSubmit={handleFormSubmit}>
-                    <div>
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            value={formData.nombre}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Contraseña:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <button type="submit">Registrarse</button>
-                </form>
-            </div>
-            {usuario && (
+            <GoogleRegistro onLoginSuccess={handleLoginSuccess} />
+            <FormularioRegistro
+                formData={almacenVar?.formData || { nombre: '', email: '', password: '' }}
+                handleInputChange={handleInputChange}
+                handleFormSubmit={handleFormSubmit}
+            />
+            {almacenVar?.usuario && (
                 <div>
-                    <p>Bienvenido, {usuario}!</p>
-                    {mostrarConfeti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
+                    <p>Bienvenido, {almacenVar.usuario.nombre}</p>
+                    <p>Email: {almacenVar.usuario.email}</p>
+                    <p>cod: {almacenVar.usuario.userId}</p>
                 </div>
             )}
+            <Footer />
         </div>
     );
 };
 
-export default Registro;    
+export default Registro;
