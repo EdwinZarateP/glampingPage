@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-import Confetti from 'react-confetti';
 import './estilos.css';
 
 interface GoogleRegistroProps {
@@ -9,7 +8,6 @@ interface GoogleRegistroProps {
 }
 
 const GoogleRegistro: React.FC<GoogleRegistroProps> = ({ onLoginSuccess }) => {
-    const [mostrarConfeti, setMostrarConfeti] = useState(false);
 
     const handleSuccess = (credentialResponse: CredentialResponse | undefined) => {
         if (credentialResponse?.credential) {
@@ -19,21 +17,10 @@ const GoogleRegistro: React.FC<GoogleRegistroProps> = ({ onLoginSuccess }) => {
             const userId: string = decoded.sub;
 
             onLoginSuccess({ nombre: nombreUsuario, email: emailUsuario, userId });
-            setMostrarConfeti(true);
         } else {
             console.log('No se recibió el credencial');
         }
     };
-
-    useEffect(() => {
-        if (mostrarConfeti) {
-            const timeout = setTimeout(() => {
-                setMostrarConfeti(false);
-            }, 3000);
-
-            return () => clearTimeout(timeout);
-        }
-    }, [mostrarConfeti]);
 
     return (
         <div className='contenedor_login_Google'>
@@ -46,7 +33,6 @@ const GoogleRegistro: React.FC<GoogleRegistroProps> = ({ onLoginSuccess }) => {
                     }}
                 />
             </span>
-            {mostrarConfeti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
         </div>
     );
 };
