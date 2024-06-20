@@ -1,18 +1,17 @@
 .contenedorIngresoRegistro {
-    position: fixed;
-    top:calc(5rem + 0.5px);
-    right: 70px;
-    width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    max-height: 100%;
-    z-index: 2;
-    background-color: white;
-  }
-
+  position: fixed;
+  top: calc(5rem + 0.5px);
+  right: 70px;
+  width: 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 0 10px 0;
+  border-radius: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100%;
+  z-index: 2;
+  background-color:white;
+}
 
 .contenedorIngresoRegistro.cerrado {
   display: none;
@@ -22,24 +21,38 @@
   display: block;
   /* Otros estilos necesarios para cuando está abierto */
 }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .list-item {
-    margin-bottom: 20px;
-  }
-  
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.list-item {
+  margin-bottom: 5px;
+  transition: background-color 0s ease;
+}
+
+.list-item a {
+  display: block;
+  text-decoration: none;
+  color: grey;
+  padding: 10px 10px 10px 20px; 
+  overflow: hidden; 
+}
+
+.list-item:hover,
+.list-item:focus {
+  background-color: #f0f0f0; /* Ajusta este color según tus preferencias */
+  width: 100%;
+}

@@ -53,19 +53,41 @@ const Registro: React.FC = () => {
         }));
     };
 
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (almacenVar) {
             console.log('Formulario enviado:', almacenVar.formData);
             const usuario = {
                 nombre: almacenVar.formData.nombre,
                 email: almacenVar.formData.email,
-                userId: '',
-                telefono: '', // Valor predeterminado para el teléfono
+                userId: '', // Asigna un ID de usuario aquí si lo tienes
+                telefono: '', 
                 fecha_nacimiento: '1990-01-01T00:00:00.000Z', // Valor predeterminado para la fecha de nacimiento
                 foto_perfil: 'https://example.com/profile.jpg' // Valor predeterminado para la foto de perfil
             };
-            almacenVar.setUsuario(usuario);
+
+            try {
+                await GuardarUsuario(usuario.userId, usuario.nombre, usuario.email, usuario.telefono, usuario.fecha_nacimiento, usuario.foto_perfil);
+                console.log('Usuario guardado en la base de datos');
+                setMostrarConfeti(true); 
+                setErrorMensaje(null); // Limpiar cualquier mensaje de error anterior
+                setUsuarioExistente(false); // Reiniciar el estado de usuario existente
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    console.error('Hubo un problema al guardar el usuario:', error.message);
+                    if (error.message === 'El usuario ya existe') {
+                        setErrorMensaje('El usuario ya existe. Por favor, use otro correo electrónico.');
+                        setUsuarioExistente(true); // Marcar que el usuario ya existe
+                    } else {
+                        setErrorMensaje('Hubo un problema al guardar el usuario. Por favor, intente nuevamente.');
+                        setUsuarioExistente(false); // Reiniciar el estado de usuario existente
+                    }
+                } else {
+                    console.error('Error inesperado al guardar el usuario');
+                    setErrorMensaje('Error inesperado al guardar el usuario. Por favor, intente nuevamente.');
+                    setUsuarioExistente(false); // Reiniciar el estado de usuario existente
+                }
+            }
         }
     };
 
